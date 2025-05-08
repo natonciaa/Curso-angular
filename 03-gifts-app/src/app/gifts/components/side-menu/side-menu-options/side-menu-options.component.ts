@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { GifService } from 'src/app/gifts/services/gifs.service';
 
 interface MenuOption {
     icon: string;
@@ -32,5 +33,8 @@ export class SideMenuOptionsComponent {
             route: '/dashboard/search'
         }
     ]
+
+    gifService = inject(GifService);
+    gifHistory = this.gifService.searchHystoryKeys;
 
 }
